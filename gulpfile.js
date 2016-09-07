@@ -33,12 +33,6 @@ gulp.task("clean:dist", function() {
 	 return del.sync("dist");
 });
 
-gulp.task( "watch", ['browserSync', 'sass'], function() {
-	gulp.watch("app/scss/*.scss", ["sass"]);
-	gulp.watch("app/js/*.js", browserSync.reload);
-	gulp.watch("app/*.html", browserSync.reload);
-});
-
 gulp.task( "minifycss", function() {
 	var loc = gulp.src(["app/css/*", "!app/css/styles.css"])
 		.pipe( cssnano() )
@@ -85,4 +79,10 @@ gulp.task("default", function(callback) {
 	runSequence(["sass","minifycss","minifyjs","images","fonts"],
 		callback
 	)
+});
+
+gulp.task( "watch", ['browserSync', 'sass', 'minifycss', 'minifyjs'], function() {
+	gulp.watch("app/scss/*/**", ["sass", gulp.minifycss]);
+	gulp.watch("app/js/*.js", gulp.minifycss, browserSync.reload);
+	gulp.watch("app/*.html", browserSync.reload);
 });
