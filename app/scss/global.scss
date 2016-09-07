@@ -1,0 +1,14 @@
+@import "_components/variables";
+@import "_components/buttons";
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+body {
+	font-family: $fontFamily;
+	font-size: $fontSize;
+	line-height: $lineHeight;
+	background-color: $bgColor;
+	color: $primaryTextColor;
+}

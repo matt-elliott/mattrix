@@ -1,0 +1,17 @@
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fefefe;
+  border: none 0;
+  text-shadow: 5% 20% 0 red; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  font-family: Helvetica, Arial, San-Serif;
+  font-size: 16px;
+  line-height: 1.2;
+  background-color: #fefefe;
+  color: #333; }
